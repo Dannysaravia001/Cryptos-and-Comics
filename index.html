@@ -5,42 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./assets/style.css" />
-  <title> weather app </title>
+  <title>Weather App</title>
 </head>
 <body>
-<header>
+  <header>
     <h1></h1>
     <p></p>
-</header>
-<script src="./assets/script.js"></script>
-</body>
+    <div id="cryptoDataContainer"></div
+  </header>
 
-<head>
-    <title>Email Subscription Form</title>
-</head>
-<body>
-    <h1>Subscribe For Currency updates</h1>
-    <p>Enter your email address below to stay up to date:</p>
+  <h1>Subscribe For Currency Updates</h1>
+  <p>Enter your email address below to stay up to date:</p>
 
-    <form id="subscriptionForm">
-        <input type="email" id="emailInput" placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
-    </form>
+  <form id="subscriptionForm">
+    <input type="email" id="emailInput" placeholder="Your email address" required>
+    <button type="submit">Subscribe</button>
+  </form>
 
-    <p id="confirmationMessage"></p>
+  <p id="confirmationMessage"></p>
 
-    <script>
-        document.getElementById("subscriptionForm").addEventListener("submit", function(event) {
-            event.preventDefault(); 
+  <script src="./assets/script.js"></script>
+  <script>
+    document.getElementById("subscriptionForm").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-            const email = document.getElementById("emailInput").value;
+      const email = document.getElementById("emailInput").value;
 
-            if (email.includes("@")) {
-                document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!";
-            } else {
-                document.getElementById("confirmationMessage").textContent = "Please enter a valid email address.";
-            }
-        });
-    </script>
+      if (email.includes("@")) {
+        document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!";
+      } else {
+        document.getElementById("confirmationMessage").textContent = "Please enter a valid email address.";
+      }
+    });
+  </script>
 </body>
 </html>
