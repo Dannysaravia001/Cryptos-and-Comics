@@ -1,4 +1,3 @@
-
 function fetchJoke() {
   const apiUrl = 'https://official-joke-api.appspot.com/random_joke';
   return fetch(apiUrl, { method: 'GET' })
