@@ -1,4 +1,4 @@
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -29,16 +29,6 @@ header h2 {
 
 header p {
     font-size: 15px;
-}
-
-#subscriptionForm {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
 }
 
 #emailInput {
@@ -98,17 +88,6 @@ body {
     margin: 20px;
   }
 
-  #subscriptionForm {
-    text-align: left;
-    max-width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
   #emailInput {
     width: 100%;
     padding: 10px;
@@ -133,6 +112,13 @@ body {
     background-color: #555;
   }
 
+  .subscribesections {
+    display: flex;
+    align-items: center;
+    width:  100%;
+    justify-content: center;
+  }
+
   #confirmationMessage {
     text-align: left;
     margin-top: 10px;
@@ -141,7 +127,20 @@ body {
   }
 
   #subscribeSection {
-    text-align: left;
     margin: 20px;
+    justify-self: center;
   }
 
+  #subscriptionForm {
+    text-align: left;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+  }
