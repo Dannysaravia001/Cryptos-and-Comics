@@ -71,3 +71,10 @@ button[type="submit"]:hover {
     font-size: 14px;
     color: #333;
 }
+
+#jokeContainer {
+  padding: 20px;
+  margin-top: 20px;
+  color:white;
+  text-align: center;
+}
