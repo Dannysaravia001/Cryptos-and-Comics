@@ -14,46 +14,33 @@
     <div id="cryptoDataContainer"></div>
   </header>
 
+
   
   <body>
-    <div id="jokeContainer">
-      <h2>Joke:</h2>
-      <p id="jokeText"></p>
-    </div>
-    <section>
-      <h1></h1>
-      <p></p>
-    </section>
-    <script src="./assets/script.js"></script>
-  </body>
-
-  <head>
-    <title>Email Subscription Form</title>
-
-</head>
-<body>
-    <h2>Subscribe For Currency updates</h2>
-    <p2>Enter your email address below to stay up to date:</p2>
-
-  </head>
+  
+  
   <body>
-    <h1>Subscribe For Currency updates</h1>
+  <div id="jokeContainer">
+    <h2>Joke:</h2>
+    <p id="jokeTextPlaceholder">Loading joke...</p>
+  </div>
+
+  <section>
+    <h1></h1>
+    <p></p>
+  </section>
+
+  <div>
+    <h2>Subscribe For Currency updates</h2>
     <p>Enter your email address below to stay up to date:</p>
 
-
     <form id="subscriptionForm">
-      <input
-        type="email"
-        id="emailInput"
-        placeholder="Your email address"
-        required
-      />
+      <input type="email" id="emailInput" placeholder="Your email address" required />
       <button type="submit">Subscribe</button>
     </form>
 
-
-  <p id="confirmationMessage"></p>
-
+    <p id="confirmationMessage"></p>
+  </div>
 
   <script src="./assets/script.js"></script>
   <script>
@@ -71,47 +58,35 @@
   </script>
 </body>
 </html>
-    <script>
-      document
-        .getElementById("subscriptionForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const email = document.getElementById("emailInput").value;
-
-          if (email.includes("@")) {
-            document.getElementById("confirmationMessage").textContent =
-              "Thank you for subscribing!";
-          } else {
-            document.getElementById("confirmationMessage").textContent =
-              "Please enter a valid email address.";
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function fetchJoke() {
+      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+      return fetch(apiUrl, { method: "GET" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
           }
-        });
-      function fetchJoke() {
-        const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-        return fetch(apiUrl, { method: "GET" })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            return data;
-          })
-          .catch((error) => {
-            throw error;
-          });
-      }
-      fetchJoke()
-        .then((jokeData) => {
-          document.getElementById("jokeText").innerText =
-            jokeData.setup + " " + jokeData.delivery;
+          return response.json();
+        })
+        .then((data) => {
+          return data;
         })
         .catch((error) => {
-          console.error("Error fetching joke:", error);
+          throw error;
         });
-    </script>
-  </body>
-</html>
+    }
 
+    fetchJoke()
+      .then((jokeData) => {
+        document.getElementById("jokeTextPlaceholder").innerText =
+          jokeData.setup + " " + jokeData.punchline;
+      })
+      .catch((error) => {
+        console.error("Error fetching joke:", error);
+      });
+  });
+</script>
+
+</body>
+</html>
