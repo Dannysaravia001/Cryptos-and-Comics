@@ -62,3 +62,4 @@ fetchCrypto()
     console.error('Error:', error);
   });
 
+// change usage
