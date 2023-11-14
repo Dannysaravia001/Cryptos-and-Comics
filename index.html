@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./assets/style.css" />
-  <title>Weather App</title>
+  <title>Cryptos & Comics</title>
 </head>
+
 <body>
   <header>
-    <h1></h1>
+    <h1>Cryptos & Comics</h1>
     <p></p>
     <div id="cryptoDataContainer"></div>
   </header>
 
-
-  
-  <body>
-  
-  
-  <body>
   <div id="jokeContainer">
     <h2>Joke:</h2>
     <p id="jokeTextPlaceholder">Loading joke...</p>
@@ -44,7 +40,7 @@
 
   <script src="./assets/script.js"></script>
   <script>
-    document.getElementById("subscriptionForm").addEventListener("submit", function(event) {
+    document.getElementById("subscriptionForm").addEventListener("submit", function (event) {
       event.preventDefault();
 
       const email = document.getElementById("emailInput").value;
@@ -56,37 +52,36 @@
       }
     });
   </script>
-</body>
-</html>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    function fetchJoke() {
-      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-      return fetch(apiUrl, { method: "GET" })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          return data;
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function fetchJoke() {
+        const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+        return fetch(apiUrl, {
+            method: "GET"
+          })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            return data;
+          })
+          .catch((error) => {
+            throw error;
+          });
+      }
+
+      fetchJoke()
+        .then((jokeData) => {
+          document.getElementById("jokeTextPlaceholder").innerText =
+            jokeData.setup + " " + jokeData.punchline;
         })
         .catch((error) => {
-          throw error;
+          console.error("Error fetching joke:", error);
         });
-    }
-
-    fetchJoke()
-      .then((jokeData) => {
-        document.getElementById("jokeTextPlaceholder").innerText =
-          jokeData.setup + " " + jokeData.punchline;
-      })
-      .catch((error) => {
-        console.error("Error fetching joke:", error);
-      });
-  });
-</script>
-
+    });
+  </script>
 </body>
-</html>
