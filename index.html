@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="./assets/style.css" />
-  <title>Weather App</title>
+  <title>Cryptos & Comics</title>
 </head>
+
 <body>
   <header>
-    
+
+    <h1>Cryptos & Comics</h1>
+    <p></p>
+    <div id="cryptoDataContainer"></div>
   </header>
 
- 
-  
-  <body>
-  
-  
-  <body>
+
   <div id="jokeContainer">
     <h2>Joke:</h2>
     <p id="jokeTextPlaceholder">Loading joke...</p>
@@ -28,32 +28,12 @@
     <h3 id="cryptoDataContainer"></h3>
   </section>
 
-  <div>
-    <h3>Subscribe For Currency updates</h3>
-    <p>Enter your email address below to stay up to date:</p>
-
-    <form id="subscriptionForm">
-      <input type="email" id="emailInput" placeholder="Your email address" required />
-      <button type="submit">Subscribe</button>
-    </form>
 
     <p id="confirmationMessage"></p>
   </div>
-
   <script src="./assets/script.js"></script>
-  <script>
-    document.getElementById("subscriptionForm").addEventListener("submit", function(event) {
-      event.preventDefault();
 
-      const email = document.getElementById("emailInput").value;
-
-      if (email.includes("@")) {
-        document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!";
-      } else {
-        document.getElementById("confirmationMessage").textContent = "Please enter a valid email address.";
-      }
-    });
-  </script>
+  
 </body>
 </html>
 <script>
@@ -69,22 +49,51 @@
         })
         .then((data) => {
           return data;
+        })}})
+  <script>
+    document.getElementById("subscriptionForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = document.getElementById("emailInput").value;
+
+      if (email.includes("@")) {
+        document.getElementById("confirmationMessage").textContent = "Thank you for subscribing!";
+      } else {
+        document.getElementById("confirmationMessage").textContent = "Please enter a valid email address.";
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function fetchJoke() {
+        const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+        return fetch(apiUrl, {
+            method: "GET"
+          })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            return data;
+          })
+          .catch((error) => {
+            throw error;
+          });
+      }
+
+      fetchJoke()
+        .then((jokeData) => {
+          document.getElementById("jokeTextPlaceholder").innerText =
+            jokeData.setup + " " + jokeData.punchline;
         })
         .catch((error) => {
-          throw error;
+          console.error("Error fetching joke:", error);
         });
-    }
-
-    fetchJoke()
-      .then((jokeData) => {
-        document.getElementById("jokeTextPlaceholder").innerText =
-          jokeData.setup + " " + jokeData.punchline;
-      })
-      .catch((error) => {
-        console.error("Error fetching joke:", error);
-      });
-  });
-</script>
-
+    });
+  </script>
 </body>
-</html>
+
