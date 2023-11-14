@@ -54,16 +54,13 @@ header p {
 
 
 #jokeContainer {
+    margin:0 auto;
     padding: 25px;
     margin-top: 25x;
     color:white;
     text-align: center;
+    border: solid;
+    max-width: 300px; 
+    border-radius: 20px;
+    background-color: rgb(5, 33, 109);
 }
-
-#jokeContainer {
-  padding: 25px;
-  margin-top: 25x;
-  color:white;
-  text-align: center;
-}
-
