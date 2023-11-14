@@ -33,7 +33,7 @@ function renderCryptoData(cryptoData) {
       <p>Name: ${asset.name}</p>
       <p>Symbol: ${asset.symbol}</p>
       <p>Price (USD): ${asset.priceUsd}</p>
-      <hr>
+     
     `;
 
     cryptoDataContainer.appendChild(item);

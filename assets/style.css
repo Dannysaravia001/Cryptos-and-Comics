@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #8a5d5d;
+    background-color: black;
     font-family: Arial, sans-serif;
 }
 
@@ -31,9 +31,35 @@ header p {
     font-size: 15px;
 }
 
+
+
+#cryptoData{
+    background-color:purple;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 300px;
+    
+}
+
+#cryptoData img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+
+#jokeContainer {
+    padding: 25px;
+    margin-top: 25x;
+    color:white;
+    text-align: center;
+}
+
 #jokeContainer {
   padding: 25px;
   margin-top: 25x;
   color:white;
   text-align: center;
 }
+
