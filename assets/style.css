@@ -14,15 +14,21 @@ body {
 }
 
 header {
+    background-image: url('https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX30082988.jpg');
     background-color: #333;
-    color: #fff;
+    color: black;
     text-align: left;
     padding: 20px;
 }
 
 header h1 {
+    background-color: white;
+    margin: 0 auto;
     font-size: 30px;
     text-align: center;
+    border: solid;
+    max-width: 300px;
+
 }
 
 header h2 {
