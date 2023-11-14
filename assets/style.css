@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #8a5d5d;
+    background-color: black;
     font-family: Arial, sans-serif;
 }
 
@@ -24,52 +24,36 @@ header h1 {
 header h2 {
     text-align: left;
     font-size: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
 }
 
 header p {
     font-size: 15px;
 }
 
-#subscriptionForm {
-    text-align: center;
+
+
+#cryptoData{
+    background-color:purple;
     margin: 0 auto;
+    padding: 15px;
+    border-radius: 20px;
     max-width: 300px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 10);
+    
 }
 
-#emailInput {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 18px;
+#cryptoData img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
 }
 
-button[type="submit"] {
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
 
-button[type="submit"]:hover {
-    background-color: #555;
-}
-
-#confirmationMessage {
+#jokeContainer {
+    padding: 25px;
+    margin-top: 25x;
+    color:white;
     text-align: center;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
 }
 
 #jokeContainer {
@@ -78,3 +62,4 @@ button[type="submit"]:hover {
   color:white;
   text-align: center;
 }
+
