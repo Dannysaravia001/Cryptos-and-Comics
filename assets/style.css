@@ -2,15 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
 body {
+    background-color: #340034;
     background-image: url('./background2.jpg'); /* Replace with the path to your image */
     background-size: cover; /* This property ensures that the background image covers the entire body */
-    background-position: center; /* This property centers the background image */
-    background-repeat: no-repeat; /* This property prevents the background image from repeating */
-    /* Additional styles can be added as needed */
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
 }
 
 header {
@@ -23,7 +23,7 @@ header {
 
 header h1 {
     background-color: white;
-    margin: 0 auto;
+    margin: 0px auto;
     font-size: 30px;
     text-align: center;
     border: solid;
@@ -45,7 +45,7 @@ header p {
 
 #cryptoData{
     background-color:purple;
-    margin: 0 auto;
+    margin: 15px auto;
     padding: 15px;
     border-radius: 20px;
     max-width: 300px;
@@ -60,7 +60,7 @@ header p {
 
 
 #jokeContainer {
-    margin:0 auto;
+    margin: 15px auto;
     padding: 25px;
     margin-top: 25x;
     color:white;
