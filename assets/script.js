@@ -1,5 +1,4 @@
 
-
 async function fetchCrypto() {
   const apiUrl = 'https://api.coincap.io/v2/assets';
 
@@ -17,15 +16,6 @@ async function fetchCrypto() {
   }
 }
 
-// Function to extract the priceUsd from the stats array
-function getPriceUsd(stats) {
-  if (Array.isArray(stats)) {
-    const priceUsdStat = stats.find(stat => stat.name === 'priceUsd');
-    return priceUsdStat ? priceUsdStat.value : 'N/A';
-  } else {
-    return 'N/A';
-  }
-}
 
 // Function to render crypto data on the HTML page
 function renderCryptoData(cryptoData) {
@@ -42,7 +32,7 @@ function renderCryptoData(cryptoData) {
     item.innerHTML = `
       <p>Name: ${asset.name}</p>
       <p>Symbol: ${asset.symbol}</p>
-      <p>Price (USD): ${getPriceUsd(asset.stats)}</p>
+      <p>Price (USD): ${asset.priceUsd}</p>
       <hr>
     `;
 
@@ -62,4 +52,5 @@ fetchCrypto()
     console.error('Error:', error);
   });
 
-// change usage
+
+
