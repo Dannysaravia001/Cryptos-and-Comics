@@ -31,8 +31,8 @@ function renderCryptoData(cryptoData) {
     const item = document.createElement('div');
     item.innerHTML = `
       <p>Name: ${asset.name}</p>
-      <p>Symbol: ${asset.symbol}</p>
-      <p>Price (USD): ${asset.priceUsd}</p>
+      <p>Symbol: ${asset.symbol} ₿ </p>
+      <p>Price (USD): ${asset.priceUsd} </p>
     `;
 
     cryptoDataContainer.appendChild(item);
