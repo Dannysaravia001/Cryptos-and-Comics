@@ -27,18 +27,27 @@
     <p></p>
   </section>
 
-  <div>
-    <h2>Subscribe For Currency updates</h2>
-    <p>Enter your email address below to stay up to date:</p>
-
-    <form id="subscriptionForm">
-      <input type="email" id="emailInput" placeholder="Your email address" required />
-      <button type="submit">Subscribe</button>
-    </form>
-
     <p id="confirmationMessage"></p>
   </div>
   <script src="./assets/script.js"></script>
+
+  
+</body>
+</html>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function fetchJoke() {
+      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+      return fetch(apiUrl, { method: "GET" })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          return data;
+
   <script>
     document.getElementById("subscriptionForm").addEventListener("submit", function (event) {
       event.preventDefault();
