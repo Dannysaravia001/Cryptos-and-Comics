@@ -55,34 +55,30 @@ fetchMultipleCrypto(cryptoIds)
     console.error('Error:', error);
   });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    function fetchJoke() {
-      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-      return fetch(apiUrl, {
-          method: "GET"
-        })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          return data;
-        })
-        .catch((error) => {
-          throw error;
-        });
-    }
-
-fetchJoke()
-  .then((jokeData) => {
-        document.getElementById("jokeTextPlaceholder").innerText =
-          jokeData.setup + " " + jokeData.punchline;
-})
-.catch((error) => {
-        console.error("Error fetching joke:", error);
+ document.addEventListener('DOMContentLoaded', function () {
+  function fetchJoke() {
+    const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+    return fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .catch((error) => {
+        throw error;
       });
+  }
+
+
+  // Fetch a joke and display it
+  fetchJoke()
+    .then((jokeData) => {
+      const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
+      jokeTextPlaceholder.innerText = `${jokeData.setup} ${jokeData.punchline}`;
+    })
+    .catch((error) => {
+      console.error("Error fetching joke:", error);
 
       function revealPunchline() {
         fetchJoke()
@@ -111,8 +107,37 @@ fetchJoke()
           });
       }
       revealPunchline();
+
     });
 
+  // Function to reveal punchline on button click
+  function revealPunchline() {
+    fetchJoke()
+      .then((jokeData) => {
+        const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
+        jokeTextPlaceholder.innerText = jokeData.setup;
+        
+        const punchlineSpan = document.createElement("span");
+        punchlineSpan.innerText = jokeData.punchline;
+        punchlineSpan.style.display = "none";
+  
+        jokeTextPlaceholder.appendChild(punchlineSpan);
+  
+        const revealButton = document.getElementById("revealButton");
+        revealButton.innerText = "Hide Punchline";
+        revealButton.onclick = function () {
+          punchlineSpan.style.display = punchlineSpan.style.display === "none" ? "inline" : "none";
+          revealButton.innerText = punchlineSpan.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
+        };
+      })
+      .catch((error) => {
+        console.error("Error fetching joke:", error);
+      });
+  }
+
+  // Call function to reveal punchline
+  revealPunchline();
+});
 
 //id is timeClock
 function updateClock() {
