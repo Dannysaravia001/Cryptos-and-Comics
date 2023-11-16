@@ -100,7 +100,7 @@ fetchJoke()
     
             // Here you can change the button text as well as set the onclick function to toggle the punchline to show
             const revealButton = document.getElementById("revealButton");
-            revealButton.innerText = "Hide Punchline";
+            revealButton.innerText = "Reveal Punchline";
             revealButton.onclick = function () {
               punchlineSpan.style.display = punchlineSpan.style.display === "none" ? "inline" : "none";
               revealButton.innerText = punchlineSpan.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
