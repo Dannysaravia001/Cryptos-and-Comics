@@ -41,7 +41,15 @@ header p {
     font-size: 15px;
 }
 
-
+#time{
+    background-color:purple;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 300px;
+    text-align: center;
+    
+}
 
 #cryptoData{
     background-color:purple;
@@ -69,4 +77,13 @@ header p {
     max-width: 300px; 
     border-radius: 20px;
     background-color: rgb(5, 33, 109);
+}
+
+#cryptoStorage {
+    background-color:purple;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 300px;   
+   
 }
