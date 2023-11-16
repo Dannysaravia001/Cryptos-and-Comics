@@ -79,4 +79,31 @@ fetchCrypto()
       .catch((error) => {
         console.error("Error fetching joke:", error);
       });
+      function revealPunchline() {
+        fetchJoke()
+          .then((jokeData) => {
+            const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
+            jokeTextPlaceholder.innerText = jokeData.setup;
+            
+            // Span element for the punchline and to set its style to hidden at start
+            const punchlineSpan = document.createElement("span");
+            punchlineSpan.innerText = jokeData.punchline;
+            punchlineSpan.style.display = "none";
+    
+            // This appends the punchline span to the placeholder element
+            jokeTextPlaceholder.appendChild(punchlineSpan);
+    
+            // Here you can change the button text as well as set the onclick function to toggle the punchline to show
+            const revealButton = document.getElementById("revealButton");
+            revealButton.innerText = "Hide Punchline";
+            revealButton.onclick = function () {
+              punchlineSpan.style.display = punchlineSpan.style.display === "none" ? "inline" : "none";
+              revealButton.innerText = punchlineSpan.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
+            };
+          })
+          .catch((error) => {
+            console.error("Error fetching joke:", error);
+          });
+      }
+      revealPunchline();
   });

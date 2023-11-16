@@ -70,3 +70,9 @@ header p {
     border-radius: 20px;
     background-color: rgb(5, 33, 109);
 }
+
+#revealButton {
+    background-color: purple;
+    color: white;
+    font-size: 15px;
+}
