@@ -1,6 +1,7 @@
 
-async function fetchCrypto() {
-  const apiUrl = 'https://api.coincap.io/v2/assets';
+
+async function fetchMultipleCrypto(ids) {
+  const apiUrl = `https://api.coincap.io/v2/assets`;
 
   try {
     const response = await fetch(apiUrl, { method: 'GET' });
@@ -10,66 +11,51 @@ async function fetchCrypto() {
     }
 
     const data = await response.json();
-    return data.data; // Assuming you want the array of assets, adjust as needed
+    const filteredData = data.data.filter(asset => ids.includes(asset.id));
+    return filteredData; // Return data for the specified cryptocurrencies
   } catch (error) {
     throw error;
   }
 }
 
-
-// Function to render crypto data on the HTML page
 function renderCryptoData(cryptoData) {
-  const cryptoDataContainer = document.getElementById('cryptoDataContainer');
+  const bitcoinData = document.getElementById('cryptoDataBitcoin');
+  const ethereumData = document.getElementById('cryptoDataEthereum');
+  const litecoinData = document.getElementById('cryptoDataLitecoin');
 
   // Clear previous content
-  cryptoDataContainer.innerHTML = '';
+  bitcoinData.innerHTML = '';
+  ethereumData.innerHTML = '';
+  litecoinData.innerHTML = '';
 
-  // Check if cryptoData is defined and has a length property
-  if (cryptoData && cryptoData.length > 0) {
-    const asset = cryptoData[0]; // Displaying the first asset
-
+  cryptoData.forEach(asset => {
     const item = document.createElement('div');
     item.innerHTML = `
       <p>Name: ${asset.name}</p>
-      <p>Symbol: ${asset.symbol} ₿ </p>
-      <p>Price (USD): ${asset.priceUsd} </p>
-    `;
+      <p>Symbol: ${asset.symbol} </p>
+      <p>Price (USD): ${asset.priceUsd}</p>
+      `;
 
-    cryptoDataContainer.appendChild(item);
-  } else {
-    // Display a message if there are no assets or if cryptoData is undefined
-    cryptoDataContainer.textContent = 'No crypto data available.';
-  }
+    if (asset.id === 'bitcoin') {
+      bitcoinData.appendChild(item);
+    } else if (asset.id === 'ethereum') {
+      ethereumData.appendChild(item);
+    } else if (asset.id === 'litecoin') {
+      litecoinData.appendChild(item);
+    }
+  });
 }
 
 // Usage
-fetchCrypto()
-  .then(assets => {
-    renderCryptoData(assets);
+const cryptoIds = ['bitcoin', 'ethereum', 'litecoin'];
+
+fetchMultipleCrypto(cryptoIds)
+  .then(cryptoData => {
+    renderCryptoData(cryptoData);
   })
   .catch(error => {
     console.error('Error:', error);
   });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    function fetchJoke() {
-      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-      return fetch(apiUrl, {
-          method: "GET"
-        })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          return data;
-        })
-        .catch((error) => {
-          throw error;
-        });
-    }
 
     fetchJoke()
       .then((jokeData) => {
@@ -107,12 +93,12 @@ fetchCrypto()
           });
       }
       revealPunchline();
-  });
+
 
 
 //id is timeClock
 function updateClock() {
-  var now = dayjs().format('HH:mm:ss');
+  var now = dayjs().format('h:mm:ss');
   // Update the content of the clock element
   document.getElementById('timeClock').textContent = now;
 }
