@@ -79,7 +79,7 @@ fetchMultipleCrypto(cryptoIds)
         jokeTextPlaceholder.innerText = jokeData.setup;
         
         const punchlineSpan = document.createElement("span");
-        punchlineSpan.innerText = jokeData.punchline;
+        punchlineSpan.innerText = ` ${jokeData.punchline}`;
         punchlineSpan.style.display = "none";
   
         jokeTextPlaceholder.appendChild(punchlineSpan);
