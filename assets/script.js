@@ -79,6 +79,7 @@ fetchCrypto()
       .catch((error) => {
         console.error("Error fetching joke:", error);
       });
+
       function revealPunchline() {
         fetchJoke()
           .then((jokeData) => {
@@ -107,3 +108,18 @@ fetchCrypto()
       }
       revealPunchline();
   });
+
+
+//id is timeClock
+function updateClock() {
+  var now = dayjs().format('HH:mm:ss');
+  // Update the content of the clock element
+  document.getElementById('timeClock').textContent = now;
+}
+
+// Call updateClock() immediately to set the initial time
+updateClock();
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
