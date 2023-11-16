@@ -1,5 +1,3 @@
-
-
 async function fetchMultipleCrypto(ids) {
   const apiUrl = `https://api.coincap.io/v2/assets`;
 
@@ -57,12 +55,32 @@ fetchMultipleCrypto(cryptoIds)
     console.error('Error:', error);
   });
 
-    fetchJoke()
-      .then((jokeData) => {
+  document.addEventListener('DOMContentLoaded', function () {
+    function fetchJoke() {
+      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+      return fetch(apiUrl, {
+          method: "GET"
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          return data;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
+
+fetchJoke()
+  .then((jokeData) => {
         document.getElementById("jokeTextPlaceholder").innerText =
           jokeData.setup + " " + jokeData.punchline;
-      })
-      .catch((error) => {
+})
+.catch((error) => {
         console.error("Error fetching joke:", error);
       });
 
@@ -93,7 +111,7 @@ fetchMultipleCrypto(cryptoIds)
           });
       }
       revealPunchline();
-
+    });
 
 
 //id is timeClock
