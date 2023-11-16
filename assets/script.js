@@ -1,11 +1,5 @@
-
-// Function to fetch cryptocurrency data
-async function fetchCrypto() {
-  const apiUrl = 'https://api.coincap.io/v2/assets';
-
 async function fetchMultipleCrypto(ids) {
   const apiUrl = `https://api.coincap.io/v2/assets`;
-
 
   try {
     const response = await fetch(apiUrl, { method: 'GET' });
@@ -15,19 +9,12 @@ async function fetchMultipleCrypto(ids) {
     }
 
     const data = await response.json();
-
-    return data.data;
-
     const filteredData = data.data.filter(asset => ids.includes(asset.id));
     return filteredData; // Return data for the specified cryptocurrencies
-
   } catch (error) {
     throw error;
   }
 }
-
-
-// Function to render crypto data on the HTML page
 
 function renderCryptoData(cryptoData) {
   const bitcoinData = document.getElementById('cryptoDataBitcoin');
@@ -57,13 +44,6 @@ function renderCryptoData(cryptoData) {
   });
 }
 
-
-// Function to fetch a joke
-function fetchJoke() {
-  const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-  return fetch(apiUrl, {
-    method: "GET"
-
 // Usage
 const cryptoIds = ['bitcoin', 'ethereum', 'litecoin'];
 
@@ -71,60 +51,29 @@ fetchMultipleCrypto(cryptoIds)
   .then(cryptoData => {
     renderCryptoData(cryptoData);
   })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      return data;
-    })
-    .catch((error) => {
-      throw error;
-    });
-}
+  .catch(error => {
+    console.error('Error:', error);
+  });
 
-document.addEventListener('DOMContentLoaded', async function () {
-  try {
-    const cryptoData = await fetchCrypto();
-    renderCryptoData(cryptoData);
-  } catch (error) {
-    console.error('Error fetching crypto data:', error);
-  }
-
-
-  const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-  try {
-    const jokeData = await fetchJoke();
-    document.getElementById("jokeTextPlaceholder").innerText = jokeData.setup + " " + jokeData.punchline;
-  } catch (error) {
-    console.error("Error fetching joke:", error);
-  }
-
-  function revealPunchline() {
-    fetchJoke()
-      .then((jokeData) => {
-        const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
-        const setupParagraph = document.createElement("p");
-        setupParagraph.textContent = jokeData.setup;
-  
-        const punchlineParagraph = document.createElement("p");
-        punchlineParagraph.textContent = jokeData.punchline;
-        punchlineParagraph.style.display = "none";
-  
-        jokeTextPlaceholder.innerHTML = '';
-        jokeTextPlaceholder.appendChild(setupParagraph);
-        jokeTextPlaceholder.appendChild(punchlineParagraph);
-  
-        const revealButton = document.getElementById("revealButton");
-        revealButton.innerText = "Reveal Punchline";
-        revealButton.onclick = function () {
-          punchlineParagraph.style.display = punchlineParagraph.style.display === "none" ? "block" : "none";
-          revealButton.innerText = punchlineParagraph.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
-        };
-      })
-      .catch((error) => {
+  document.addEventListener('DOMContentLoaded', function () {
+    function fetchJoke() {
+      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+      return fetch(apiUrl, {
+          method: "GET"
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          return data;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
 
 fetchJoke()
   .then((jokeData) => {
@@ -132,15 +81,8 @@ fetchJoke()
           jokeData.setup + " " + jokeData.punchline;
 })
 .catch((error) => {
-
         console.error("Error fetching joke:", error);
       });
-  }
-
-
-  // Call revealPunchline immediately after the page loads
-  revealPunchline();
-});
 
       function revealPunchline() {
         fetchJoke()
@@ -172,8 +114,7 @@ fetchJoke()
     });
 
 
-
-// Update the clock every second
+//id is timeClock
 function updateClock() {
   var now = dayjs().format('h:mm:ss');
   // Update the content of the clock element
