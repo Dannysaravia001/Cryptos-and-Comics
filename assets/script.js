@@ -1,4 +1,4 @@
-
+// Function to fetch cryptocurrency data
 async function fetchCrypto() {
   const apiUrl = 'https://api.coincap.io/v2/assets';
 
@@ -10,12 +10,11 @@ async function fetchCrypto() {
     }
 
     const data = await response.json();
-    return data.data; // Assuming you want the array of assets, adjust as needed
+    return data.data;
   } catch (error) {
     throw error;
   }
 }
-
 
 // Function to render crypto data on the HTML page
 function renderCryptoData(cryptoData) {
@@ -42,75 +41,74 @@ function renderCryptoData(cryptoData) {
   }
 }
 
-// Usage
-fetchCrypto()
-  .then(assets => {
-    renderCryptoData(assets);
+// Function to fetch a joke
+function fetchJoke() {
+  const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+  return fetch(apiUrl, {
+    method: "GET"
   })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      return data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
 
-  document.addEventListener('DOMContentLoaded', function () {
-    function fetchJoke() {
-      const apiUrl = "https://official-joke-api.appspot.com/random_joke";
-      return fetch(apiUrl, {
-          method: "GET"
-        })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          return data;
-        })
-        .catch((error) => {
-          throw error;
-        });
-    }
+document.addEventListener('DOMContentLoaded', async function () {
+  try {
+    const cryptoData = await fetchCrypto();
+    renderCryptoData(cryptoData);
+  } catch (error) {
+    console.error('Error fetching crypto data:', error);
+  }
 
+  const apiUrl = "https://official-joke-api.appspot.com/random_joke";
+  try {
+    const jokeData = await fetchJoke();
+    document.getElementById("jokeTextPlaceholder").innerText = jokeData.setup + " " + jokeData.punchline;
+  } catch (error) {
+    console.error("Error fetching joke:", error);
+  }
+
+  function revealPunchline() {
     fetchJoke()
       .then((jokeData) => {
-        document.getElementById("jokeTextPlaceholder").innerText =
-          jokeData.setup + " " + jokeData.punchline;
+        const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
+        const setupParagraph = document.createElement("p");
+        setupParagraph.textContent = jokeData.setup;
+  
+        const punchlineParagraph = document.createElement("p");
+        punchlineParagraph.textContent = jokeData.punchline;
+        punchlineParagraph.style.display = "none";
+  
+        jokeTextPlaceholder.innerHTML = '';
+        jokeTextPlaceholder.appendChild(setupParagraph);
+        jokeTextPlaceholder.appendChild(punchlineParagraph);
+  
+        const revealButton = document.getElementById("revealButton");
+        revealButton.innerText = "Reveal Punchline";
+        revealButton.onclick = function () {
+          punchlineParagraph.style.display = punchlineParagraph.style.display === "none" ? "block" : "none";
+          revealButton.innerText = punchlineParagraph.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
+        };
       })
       .catch((error) => {
         console.error("Error fetching joke:", error);
       });
+  }
 
-      function revealPunchline() {
-        fetchJoke()
-          .then((jokeData) => {
-            const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
-            jokeTextPlaceholder.innerText = jokeData.setup;
-            
-            // Span element for the punchline and to set its style to hidden at start
-            const punchlineSpan = document.createElement("span");
-            punchlineSpan.innerText = jokeData.punchline;
-            punchlineSpan.style.display = "none";
-    
-            // This appends the punchline span to the placeholder element
-            jokeTextPlaceholder.appendChild(punchlineSpan);
-    
-            // Here you can change the button text as well as set the onclick function to toggle the punchline to show
-            const revealButton = document.getElementById("revealButton");
-            revealButton.innerText = "Hide Punchline";
-            revealButton.onclick = function () {
-              punchlineSpan.style.display = punchlineSpan.style.display === "none" ? "inline" : "none";
-              revealButton.innerText = punchlineSpan.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
-            };
-          })
-          .catch((error) => {
-            console.error("Error fetching joke:", error);
-          });
-      }
-      revealPunchline();
-  });
+  // Call revealPunchline immediately after the page loads
+  revealPunchline();
+});
 
-
-//id is timeClock
+// Update the clock every second
 function updateClock() {
   var now = dayjs().format('HH:mm:ss');
   // Update the content of the clock element
