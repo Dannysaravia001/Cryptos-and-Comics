@@ -79,6 +79,12 @@ header p {
     background-color: rgb(5, 33, 109);
 }
 
+
+#revealButton {
+    background-color: purple;
+    color: white;
+    font-size: 15px;
+
 #cryptoStorage {
     background-color:purple;
     margin: 15px auto;
@@ -86,4 +92,5 @@ header p {
     border-radius: 20px;
     max-width: 300px;   
    
+
 }
