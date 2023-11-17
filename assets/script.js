@@ -26,7 +26,7 @@ function renderCryptoData(cryptoData) {
       <p>Name: ${asset.name}</p>
       <p>Symbol: ${asset.symbol} </p>
       <p>Price (USD): ${asset.priceUsd}</p>
-      <button onclick="saveCryptoPrice('${asset.symbol}', ${asset.priceUsd})">Save Price</button>
+      <button class="saveButton" onclick="saveCryptoPrice ('${asset.symbol}', ${asset.priceUsd})">Save Price</button>
     `;
     if (asset.id === 'bitcoin') {
       bitcoinData.appendChild(item);
@@ -99,6 +99,36 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.error("Error fetching joke:", error);
       });
   }
+
+  // Function to save name to localStorage
+function saveName() {
+  const userName = document.getElementById('nameInput').value;
+  localStorage.setItem('userName', userName);
+  displayName(userName);
+}
+
+// Function to display user's name on HTML
+function displayName(name) {
+  const displayElement = document.getElementById('displayName');
+  displayElement.textContent = `User's Name: ${name}`;
+}
+
+// Function to show welcome alert
+function showWelcomeAlert() {
+  const userName = localStorage.getItem('userName');
+  if (userName) {
+    alert(`Welcome back, ${userName}!`);
+  }
+}
+
+// Check if the user's name exists in localStorage on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const userName = localStorage.getItem('userName');
+  if (userName) {
+    displayName(userName);
+    showWelcomeAlert();
+  }
+});
   // Call function to reveal punchline
   revealPunchline();
   //timeClock
