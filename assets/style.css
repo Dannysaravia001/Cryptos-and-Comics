@@ -42,12 +42,13 @@ header p {
 }
 
 #time{
-    background-color:purple;
+    background-color:rgb(5, 33, 109);
     margin: 15px auto;
     padding: 15px;
     border-radius: 20px;
     max-width: 300px;
     text-align: center;
+    color: white;
     
 }
 .cryptoContainer {
@@ -57,11 +58,12 @@ header p {
 }
 
 #cryptoData {
-  background-color: purple;
+  background-color: rgb(5, 33, 109);
   margin: 15px;
   padding: 15px;
   border-radius: 20px;
   max-width: 300px;
+  color: white;
   
 }
 
@@ -86,16 +88,17 @@ header p {
 
 
 #revealButton {
-    background-color: purple;
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 15px;
 }
 #cryptoStorage {
-    background-color:purple;
+    background-color:rgb(5, 33, 109);
     margin: 15px auto;
     padding: 15px;
     border-radius: 20px;
-    max-width: 300px;   
+    max-width: 300px;
+    color: white;   
    
 
 }

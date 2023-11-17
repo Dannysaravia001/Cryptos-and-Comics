@@ -101,14 +101,16 @@ document.addEventListener('DOMContentLoaded', async function () {
   }
   // Call function to reveal punchline
   revealPunchline();
-  //id is timeClock
+  //timeClock
   function updateClock() {
-    var now = dayjs().format('h:mm:ss');
+    var now = dayjs().format('h:mm A MM-DD-YYYY');
     // Update the content of the clock element
     document.getElementById('timeClock').textContent = now;
-  }
-  // Call updateClock() immediately to set the initial time
-  updateClock();
-  // Update the clock every second
-  setInterval(updateClock, 1000);
+}
+
+// Call updateClock() immediately to set the initial time
+updateClock();
+
+// Update the clock every second
+setInterval(updateClock, 1000);
 });
