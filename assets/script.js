@@ -52,7 +52,7 @@ function updateSavedCryptoList(savedCrypto) {
   const savedCryptoList = document.getElementById('savedCryptoList');
   savedCryptoList.innerHTML = '';
   for (const symbol in savedCrypto) {
-    const listItem = document.createElement('li');
+    const listItem = document.createElement('ul');
     listItem.textContent = `${symbol}: $${savedCrypto[symbol]}`;
     savedCryptoList.appendChild(listItem);
   }
