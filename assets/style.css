@@ -19,6 +19,7 @@ header {
     color: black;
     text-align: left;
     padding: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 }
 
 header h1 {
@@ -28,6 +29,7 @@ header h1 {
     text-align: center;
     border: solid;
     max-width: 300px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 
 }
 
@@ -49,12 +51,13 @@ header p {
     max-width: 300px;
     text-align: center;
     color: white;
-    
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 }
 .cryptoContainer {
     text-align: center; 
     display: flex;
     justify-content: center;
+    
 }
 
 #cryptoData {
@@ -64,7 +67,7 @@ header p {
   border-radius: 20px;
   max-width: 300px;
   color: white;
-  
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 }
 
 #cryptoData img {
@@ -73,7 +76,9 @@ header p {
   height: auto;
 }
 
-
+.saveButton {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
+}
 #jokeContainer {
     margin: 15px auto;
     padding: 25px;
@@ -84,6 +89,7 @@ header p {
     max-width: 300px; 
     border-radius: 20px;
     background-color: rgb(5, 33, 109);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 }
 
 
@@ -91,6 +97,7 @@ header p {
     background-color: white;
     color: black;
     font-size: 15px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 }
 #cryptoStorage {
     background-color:rgb(5, 33, 109);
@@ -99,4 +106,5 @@ header p {
     border-radius: 20px;
     max-width: 300px;
     color: white;   
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); 
 }
