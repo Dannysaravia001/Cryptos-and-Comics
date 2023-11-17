@@ -69,35 +69,45 @@ fetchMultipleCrypto(cryptoIds)
         throw error;
       });
   }
+function updatePrices() {
+  const cryptoIds = ['bitcoin','ethereum','litecoin'];
 
-
+  fetchMultipleCrypto(cryptoIds)
+    .then (cryptoData => {
+    renderCryptoData(cryptoData);
+  })
+  .catch(error => {
+    console.log("Error:", error);
+  });
+}
+     
   // Function to reveal punchline on button click
-  function revealPunchline() {
-    fetchJoke()
-      .then((jokeData) => {
-        const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
-        jokeTextPlaceholder.innerText = jokeData.setup;
+function revealPunchline() {
+  fetchJoke()
+    .then((jokeData) => {
+      const jokeTextPlaceholder = document.getElementById("jokeTextPlaceholder");
+      jokeTextPlaceholder.innerText = jokeData.setup;
         
-        const punchlineSpan = document.createElement("span");
-        punchlineSpan.innerText = ` ${jokeData.punchline}`;
-        punchlineSpan.style.display = "none";
+      const punchlineSpan = document.createElement("span");
+      punchlineSpan.innerText = ` ${jokeData.punchline}`;
+      punchlineSpan.style.display = "none";
   
-        jokeTextPlaceholder.appendChild(punchlineSpan);
+      jokeTextPlaceholder.appendChild(punchlineSpan);
   
-        const revealButton = document.getElementById("revealButton");
-        revealButton.innerText = "Reveal Punchline";
-        revealButton.onclick = function () {
-          punchlineSpan.style.display = punchlineSpan.style.display === "none" ? "inline" : "none";
-          revealButton.innerText = punchlineSpan.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
-        };
-      })
-      .catch((error) => {
-        console.error("Error fetching joke:", error);
-      });
+      const revealButton = document.getElementById("revealButton");
+      revealButton.innerText = "Reveal Punchline";
+      revealButton.onclick = function () {
+        punchlineSpan.style.display = punchlineSpan.style.display === "none" ? "inline" : "none";
+        revealButton.innerText = punchlineSpan.style.display === "none" ? "Reveal Punchline" : "Hide Punchline";
+      };
+    })
+    .catch((error) => {
+      console.error("Error fetching joke:", error);
+    });
   }
-
-  // Call function to reveal punchline
-  revealPunchline();
+  
+// Call function to reveal punchline
+revealPunchline();
 });
 
 //id is timeClock
@@ -113,3 +123,6 @@ updateClock();
 // Update the clock every second
 setInterval(updateClock, 1000);
 
+updatePrices()
+
+setInterval(updatePrices, 1000);

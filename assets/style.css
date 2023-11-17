@@ -10,7 +10,7 @@ body {
     background-size: cover; /* This property ensures that the background image covers the entire body */
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    height: 100%;
 }
 
 header {
@@ -50,21 +50,25 @@ header p {
     text-align: center;
     
 }
+.cryptoContainer {
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+}
 
-#cryptoData{
-    background-color:purple;
-    margin: 15px auto;
-    padding: 15px;
-    border-radius: 20px;
-    max-width: 300px;
-    display: inline-block;
-    
+#cryptoData {
+  background-color: purple;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 20px;
+  max-width: 300px;
+  
 }
 
 #cryptoData img {
-    border-radius: 20px;
-    max-width: 100%;
-    height: auto;
+  border-radius: 20px;
+  max-width: 100%;
+  height: auto;
 }
 
 

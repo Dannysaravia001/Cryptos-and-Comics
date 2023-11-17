@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./assets/style.css">
+  
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
       <script>dayjs().format()</script>
       <script
@@ -12,6 +12,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./assets/style.css">
   <title>Cryptos & Comics</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
     <button id="revealButton" onclick="togglePunchline()">Reveal Punchline</button>
 </div>
   </div>
-  
+  <section class="cryptoContainer">
   <section id="cryptoData">
     <img src="./assets/bitcoin.jpg">
     <h3 id="cryptoDataBitcoin"></h3>
@@ -47,7 +48,7 @@
     <button onclick="saveCryptoPrice()">Save Price</button>
     <p id="savedInfo"></p>
   </section>
-    
+</section>  
   <section id="cryptoStorage">
     <h3>
      last recorded price:
