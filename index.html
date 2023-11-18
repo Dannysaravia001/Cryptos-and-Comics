@@ -1,61 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-      <script>dayjs().format()</script>
-      <script
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>
+      dayjs().format();
+    </script>
+    <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="./assets/style.css">
-  <title>Cryptos & Comics</title>
-</head>
-<body>
-  <header>
-    <h1>Cryptos & Comics</h1>
-  </header>
-  <div id="time">
-    <h2>Current time & date:</h2>
-    <h2 id="timeClock"></h2>
-  </div>
-  <div id="jokeContainer">
-    <h2>Joke:</h2>
-    <p id="jokeTextPlaceholder">Loading joke...</p>
-    <button id="revealButton" onclick="togglePunchline()">Reveal Punchline</button>
-</div>
-  </div>
-  <section class="cryptoContainer">
-  <section id="cryptoData">
-    <img src="./assets/bitcoin.jpg">
-    <h3 id="cryptoDataBitcoin"></h3>
-    
-    <p id="savedInfo"></p>
-  </section>
-  <section id="cryptoData">
-    <img src="./assets/Etherum.jpg">
-    <h3 id="cryptoDataEthereum"></h3>
-    
-    <p id="savedInfo"></p>
-  </section>
-  <section id="cryptoData">
-    <img src="./assets/Litecoin.png">
-    <h3 id="cryptoDataLitecoin"></h3>
-    
-    <p id="savedInfo"></p>
-  </section>
-</section>  
-  
-  <section id="cryptoStorage">
-    <h3>Last Recorded Prices:</h3>
-    <ul id="savedCryptoList"></ul>
-  </div>
-  </section>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Cryptos & Comics</title>
+  </head>
+  <body>
+    <header>
+      <h1>Cryptos & Comics</h1>
+    </header>
+    <div id="time">
+      <h2>Current time & date:</h2>
+      <h2 id="timeClock"></h2>
+    </div>
+    <div id="jokeContainer">
+      <h2>Joke:</h2>
+      <p id="jokeTextPlaceholder">Loading joke...</p>
+      <button id="revealButton" onclick="togglePunchline()">
+        Reveal Punchline
+      </button>
+    </div>
+    <div id="searchContainer">
+      <input
+        type="text"
+        id="cryptoSearch"
+        placeholder="Enter cryptocurrency name"
+      />
+      <button id="searchButton">Search</button>
+      <div id="searchResultsContainer"></div>
+      <div id="searchResultPrice"></div>
+    </div>
+    <section class="cryptoContainer">
+      <section id="cryptoData">
+        <img src="./assets/bitcoin.jpg" />
+        <h3 id="cryptoDataBitcoin"></h3>
 
-  <script src="./assets/script.js"></script>
-</body>
+        <p id="savedInfo"></p>
+      </section>
+      <section id="cryptoData">
+        <img src="./assets/Etherum.jpg" />
+        <h3 id="cryptoDataEthereum"></h3>
+
+        <p id="savedInfo"></p>
+      </section>
+      <section id="cryptoData">
+        <img src="./assets/Litecoin.png" />
+        <h3 id="cryptoDataLitecoin"></h3>
+
+        <p id="savedInfo"></p>
+      </section>
+    </section>
+
+    <section id="cryptoStorage">
+      <h3>Last Recorded Prices:</h3>
+      <ul id="savedCryptoList"></ul>
+    </section>
+
+    <script src="./assets/script.js"></script>
+  </body>
 </html>
