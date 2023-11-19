@@ -76,6 +76,8 @@ header p {
 
 .saveButton {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  background-color: #410d35;
+  color: white;
 }
 #jokeContainer {
   margin: 15px auto;
@@ -95,6 +97,8 @@ header p {
   color: black;
   font-size: 15px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  background-color: #410d35;
+  color: white;
 }
 #cryptoStorage {
   background-color: rgb(5, 33, 109);
@@ -114,4 +118,23 @@ header p {
   padding: 10px;
   color: white;
   margin: 60px 0 0 70px;
+  transition: background-color 0.3s ease;
+}
+
+#searchContainer:hover {
+  background-color: #4a163e;
+}
+
+#searchButton {
+  background-color: rgb(5, 33, 109);
+  color: white;
+}
+
+#cryptoSearch {
+  background-color: rgb(5, 33, 109);
+  color: white;
+}
+
+#cryptoSearch:hover {
+  background-color: #410d35;
 }
