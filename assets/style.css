@@ -117,19 +117,22 @@ header p {
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
   transition: all 1s ease-in-out;
+  position: fixed;
+  top: 80px;
+  right: 20px; 
 }
+
 
 #searchContainer {
   background-color: rgb(5, 33, 109);
   border-radius: 20px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
   width: fit-content;
+  margin: 20px;
   padding: 10px;
   color: white;
   transition: background-color 1.0s ease;
   position: fixed;
-  top: 20px; 
-  right: 20px;
 }
 
 #searchContainer:hover {
