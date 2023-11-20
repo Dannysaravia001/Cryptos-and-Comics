@@ -74,27 +74,33 @@ function renderCryptoData(cryptoData) {
   const ethereumData = document.getElementById("cryptoDataEthereum");
   const litecoinData = document.getElementById("cryptoDataLitecoin");
 
-  bitcoinData.innerHTML = "";
-  ethereumData.innerHTML = "";
-  litecoinData.innerHTML = "";
-
-  cryptoData.forEach((asset) => {
-    const item = document.createElement("div");
-    item.innerHTML = `
+// Function to update data for a specific cryptocurrency
+  function updateCryptoData(element, asset) {
+    element.innerHTML = `
       <p>Name: ${asset.name}</p>
       <p>Symbol: ${asset.symbol} </p>
       <p>Price (USD): ${asset.priceUsd}</p>
       <button class="saveButton" onclick="saveCryptoPrice ('${asset.symbol}', ${asset.priceUsd})">Save Price</button>
     `;
+  }
 
-    if (asset.id === "bitcoin") {
-      bitcoinData.appendChild(item);
-    } else if (asset.id === "ethereum") {
-      ethereumData.appendChild(item);
-    } else if (asset.id === "litecoin") {
-      litecoinData.appendChild(item);
-    }
-  });
+  // Update data for Bitcoin if present in cryptoData
+  const bitcoin = cryptoData.find(asset => asset.id === 'bitcoin');
+  if (bitcoin) {
+    updateCryptoData(bitcoinData, bitcoin);
+  }
+
+  // Update data for Ethereum if present in cryptoData
+  const ethereum = cryptoData.find(asset => asset.id === 'ethereum');
+  if (ethereum) {
+    updateCryptoData(ethereumData, ethereum);
+  }
+
+  // Update data for Litecoin if present in cryptoData
+  const litecoin = cryptoData.find(asset => asset.id === 'litecoin');
+  if (litecoin) {
+    updateCryptoData(litecoinData, litecoin);
+  }
 
   const savedCrypto = JSON.parse(localStorage.getItem("savedCrypto")) || {};
   updateSavedCryptoList(savedCrypto);
