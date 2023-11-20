@@ -46,28 +46,44 @@ async function searchCrypto() {
   }
 }
 
-// Fetch cryptocurrency data by ID
-async function fetchCryptoById(id) {
-  const apiUrl = `https://api.coincap.io/v2/assets/${id.toLowerCase()}`;
+async function searchCrypto() {
+  const cryptoInput = document.getElementById("cryptoSearch").value.toUpperCase();
 
   try {
+    const apiUrl = `https://api.coincap.io/v2/assets/${cryptoInput.toLowerCase()}`;
     const response = await fetch(apiUrl, { method: "GET" });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error(`Error fetching crypto data for ${id}: ${errorData.error}`);
-      return null;
+      console.error(`Crypto not found for symbol: ${cryptoInput}`);
+      document.getElementById("searchResultPrice").textContent = "Crypto not found.";
+      return;
     }
 
     const data = await response.json();
-    console.log(`Data for ${id}:`, data);
-    return data.data;
+    const searchData = data.data; // Accessing data property
+
+    const searchResultsContainer = document.getElementById("searchResultsContainer");
+
+    // Create a new result element
+    const newResultElement = document.createElement("div");
+    newResultElement.innerHTML = `
+      <p>Search Results:</p>
+      <p>Name: ${searchData.name}</p>
+      <p>Symbol: ${searchData.symbol}</p>
+      <p>Price (USD): ${searchData.priceUsd}</p>
+      <hr>
+    `;
+
+    // Append the new result element to the existing content
+    searchResultsContainer.appendChild(newResultElement);
+
+    document.getElementById("searchResultPrice").textContent = "";
+    renderCryptoData([searchData]); // Passing the searchData as an array to render function
   } catch (error) {
-    console.error(`Error fetching crypto data for ${id}:`, error);
-    throw error;
+    console.error("Error fetching crypto data:", error);
+    document.getElementById("searchResultsContainer").textContent = "Error fetching crypto data.";
   }
 }
-
 // Render cryptocurrency data
 function renderCryptoData(cryptoData) {
   const bitcoinData = document.getElementById("cryptoDataBitcoin");
