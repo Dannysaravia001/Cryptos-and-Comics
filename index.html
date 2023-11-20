@@ -11,6 +11,21 @@
     <header>
       <h1>Cryptos & Comics</h1>
     </header>
+    <section id="cryptoStorage">
+      <h3>Last recorded prices:</h3>
+      <ul id="savedCryptoList" ></ul>
+    </section>
+    <div id="searchContainer">
+      <input
+        type="text"
+        id="cryptoSearch"
+        placeholder="Enter cryptocurrency name"
+      />
+      <button id="searchButton" >Search</button>
+      <div id="searchResultsContainer"></div>
+      <div id="searchResultPrice"></div>
+    </div>
+    
     <div id="time">
       <h2>Current time & date:</h2>
       <h2 id="timeClock"></h2>
@@ -22,16 +37,7 @@
         Reveal Punchline
       </button>
     </div>
-    <div id="searchContainer">
-      <input
-        type="text"
-        id="cryptoSearch"
-        placeholder="Enter cryptocurrency name"
-      />
-      <button id="searchButton" >Search</button>
-      <div id="searchResultsContainer"></div>
-      <div id="searchResultPrice"></div>
-    </div>
+    
     <section class="cryptoContainer">
       <section id="cryptoData" class='hover'>
         <img src="./assets/bitcoin.jpg" />
@@ -51,11 +57,6 @@
 
         <p id="savedInfo"></p>
       </section>
-    </section>
-
-    <section id="cryptoStorage" class='hover'>
-      <h3>Last recorded prices:</h3>
-      <ul id="savedCryptoList" ></ul>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="./assets/script.js"></script>
