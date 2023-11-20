@@ -126,8 +126,10 @@ header p {
   width: fit-content;
   padding: 10px;
   color: white;
-  position:fixed;
   transition: background-color 1.0s ease;
+  position: fixed;
+  top: 20px; 
+  right: 20px;
 }
 
 #searchContainer:hover {
