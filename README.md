@@ -29,3 +29,7 @@ Access our platform from any device. Whether you're on your desktop, tablet, or 
 Simply open our web application in your browser to access cryptocurrency information with the added convenience of currency search. Scroll between currency updates and jokes, providing an informed view of the cryptocurrency market.
 
 Stay informed, stay entertained – all in one place. Explore the world of cryptocurrency with our innovative web application today.
+
+## Deployed application
+
+https://dannysaravia001.github.io/Cryptos-and-Comics/
