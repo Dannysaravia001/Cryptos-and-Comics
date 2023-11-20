@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // Update the clock
   function updateClock() {
-    var now = dayjs().format("h:mm A MM-DD-YYYY");
+    var now = dayjs().format("h:mm A MM/DD/YYYY");
     document.getElementById("timeClock").textContent = now;
   }
 
