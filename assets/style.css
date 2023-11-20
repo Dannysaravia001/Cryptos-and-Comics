@@ -124,7 +124,7 @@ header p {
   width: fit-content;
   padding: 10px;
   color: white;
-  margin: 15px 0 0 825px;
+  margin: 15px auto;
   transition: background-color 1.0s ease;
 }
 
