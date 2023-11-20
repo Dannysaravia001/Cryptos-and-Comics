@@ -67,6 +67,7 @@ header p {
   max-width: 300px;
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
 }
 
 #cryptoData img {
@@ -77,7 +78,7 @@ header p {
 
 .saveButton {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
-  background-color: #410d35;
+  background-color: purple;
   color: white;
 }
 
@@ -99,7 +100,7 @@ header p {
   color: black;
   font-size: 15px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
-  background-color: #410d35;
+  background-color: purple;
   color: white;
 }
 
@@ -126,5 +127,9 @@ header p {
 }
 
 #searchContainer:hover {
-  background-color: #4a163e;
+  background-color: purple;
+}
+
+#cryptoData:hover {
+  background-color: purple;
 }
