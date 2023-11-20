@@ -2,7 +2,7 @@
 
 #Our Demo Gif
 
-![](Demo.gif)
+![]img align="center"(Demo.gif)
 
 Welcome to our web application designed exclusively for cryptocurrency enthusiasts. Our platform not only offers 24-hour updates on currency prices but also provides users the ability to search for specific currencies of their choice. Stay informed with real-time information about each currency's name, symbol, and value converted into US dollars. This powerful financial tool allows you to stay informed about the cryptocurrency market at a glance.
 
