@@ -24,7 +24,7 @@ Simply open our web application in your browser to access cryptocurrency informa
 
 Stay informed, stay entertained – all in one place. Explore the world of cryptocurrency with our innovative web application today.
 
-
+[![Watch the video]("yYI0Ij.gif")]
 
 
 
