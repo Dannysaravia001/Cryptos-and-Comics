@@ -126,7 +126,7 @@ header p {
   width: fit-content;
   padding: 10px;
   color: white;
-  margin: 15px auto;
+  position:fixed;
   transition: background-color 1.0s ease;
 }
 
@@ -139,5 +139,5 @@ header p {
 }
 
 .hover:hover {
-  transform: scale(1.2); /* Example: Slightly smaller scale factor */
+  transform: scale(1.2);
 }
