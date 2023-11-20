@@ -147,11 +147,6 @@ header p {
   transform: scale(1.2);
 }
 
-#cryptoSearch:hover {
-  background-color:  white;
-  color: white;
-}
-
 #searchButton:hover {
     background-color: rgb(5, 33, 109);
     color: white;
