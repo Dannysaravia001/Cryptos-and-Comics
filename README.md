@@ -1,6 +1,6 @@
 # Cryptocurrency Price Tracker with Currency Search and Joke Insights
 
-# Our Demo Gif
+## Our Demo Gif
 
 <p align="center">
   <img src="Demo.gif" alt="Demo GIF">
