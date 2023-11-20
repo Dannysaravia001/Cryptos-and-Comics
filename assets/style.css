@@ -67,7 +67,8 @@ header p {
   max-width: 300px;
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease;
+  transition: background-color 5s ease;
+  transition: all 1s ease-in-out;
 }
 
 #cryptoData img {
@@ -109,10 +110,11 @@ header p {
   margin: 15px auto 2px;
   padding: 15px;
   border-radius: 20px;
-  max-width: 300px;
+  width: 300px;
   width: fit-content;
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
+  transition: all 1s ease-in-out;
 }
 
 #searchContainer {
@@ -123,7 +125,7 @@ header p {
   padding: 10px;
   color: white;
   margin: 15px 0 0 825px;
-  transition: background-color 0.3s ease;
+  transition: background-color 1.0s ease;
 }
 
 #searchContainer:hover {
@@ -132,4 +134,8 @@ header p {
 
 #cryptoData:hover {
   background-color: purple;
+}
+
+.hover:hover {
+  transform: scale(1.2); /* Example: Slightly smaller scale factor */
 }
